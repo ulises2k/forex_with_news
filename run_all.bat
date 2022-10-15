@@ -1,3 +1,4 @@
+python ..\CommunityPowerEA_News_Download\CommunityPowerEA_News_Download.py
 python symbol_export_csv.py
 python join_news_with_symbol.py
 python convert_csv_to_excel.py

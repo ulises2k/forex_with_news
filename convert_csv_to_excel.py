@@ -1,4 +1,4 @@
-#Script que convierte los CSV a Excel
+# Script que convierte los CSV a Excel
 # Created by @ulises2k
 # v1.0 - 06/10/2022
 #
@@ -7,8 +7,8 @@ import pandas as pd
 # Install module:
 # pip install pandas
 # pip install XlsxWriter
-
-
+#
+#
 def convertToExcel(csv_file,excel_file):
     print (f'Converting CSV -> {csv_file} to Excel -> {excel_file}...')
     read_file = pd.read_csv (csv_file, delimiter=";")
@@ -16,9 +16,6 @@ def convertToExcel(csv_file,excel_file):
     read_file.to_excel (writer, sheet_name='Sheet1', index = None, header = True)
 
     workbook = writer.book
-    worksheet = workbook.add_worksheet()
-    worksheet = workbook.get_worksheet_by_name('Sheet2')
-
     worksheet1 = workbook.get_worksheet_by_name('Sheet1')
     worksheet1.autofilter('A1:G1')
     worksheet1.freeze_panes(1, 0)
@@ -27,8 +24,9 @@ def convertToExcel(csv_file,excel_file):
 
 #AllPairs mas Bitcoin, Gold, Index
 symbols = ['AUDCAD','AUDCHF','AUDJPY','AUDNZD','AUDUSD','CADCHF','CADJPY','CHFJPY','EURAUD','EURCAD','EURCHF','EURGBP','EURJPY','EURNZD','EURUSD','GBPAUD','GBPCAD','GBPCHF','GBPJPY','GBPNZD','GBPUSD','NZDCAD','NZDCHF','NZDJPY','NZDUSD','USDCAD','USDCHF','USDJPY', 'BTCUSD', 'XAUUSD', '.US500Cash', '.US30Cash']
+#symbols = ['EURUSD']
 timeframe = '5'
 for symbol in symbols:
     symbol_news=f'{symbol}-News.csv'
-    symbol_news_Excel=f'{symbol}-News.xlsx' 
+    symbol_news_Excel=f'{symbol}-News.xlsx'
     convertToExcel(symbol_news, symbol_news_Excel)
