@@ -22,7 +22,7 @@ import xlsxwriter
 #Export Prices 
 def getPrices(symbol, timeframe, from_year):    
     # establish connection to the MetaTrader 5 terminal
-    if not mt5.initialize(login=27049283, server="RoboForex-Pro", password="o9928D"):
+    if not mt5.initialize(login=27049283, server="RoboForex-Pro", password="xxxxxx"):
         print("[Metatrader5 initialization faild !]=", mt5.last_error())
         return pd.Dataframe()
     print('[MetaTrader5]-> Initialization passed!')
